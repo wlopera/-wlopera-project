@@ -14,7 +14,8 @@
 </head>
 <body>
 	<div class="container mt-3">
-		<h2>Informaci&oacute;n Importante</h2>
+		<h2>Envio Certificado Fitosanitario</h2>
+		<hr>
 		<p>Por favor ingrese la informaci&oacute;n necesaria</p>
 		<form action="#" th:action="@{/save}" th:object="${registry}"
 			method="post">
@@ -23,7 +24,7 @@
 					<span class="input-group-text">Pais</span>
 				</div>
 				<input type="text" th:field="*{country}" id="country"
-					class="form-control" placeholder="PE">
+					class="form-control" value="PE" readonly>
 			</div>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
@@ -48,6 +49,10 @@
 			</div>
 			<button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>
 		</form>
+		<ul class="nav">
+			<li class="nav-item"><a class="nav-link" th:href="@{/dataBD}">Base de datos</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/h2-console}">Consola H2</a></li>
+		</ul>
 	</div>
 </body>
 </html>

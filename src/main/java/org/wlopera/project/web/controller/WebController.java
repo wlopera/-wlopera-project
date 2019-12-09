@@ -43,10 +43,19 @@ public class WebController {
 
 		final ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
-		modelAndView.addObject("registry", new RegistryDTO(certificate));
+		
+		RegistryDTO registry = new RegistryDTO(certificate);
+		registry.setCountry("PE");
+		
+		modelAndView.addObject("registry", registry);
 
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/dataBD", method = RequestMethod.GET)
+    public String ackPage() {
+        return "ack";
+    }
 
 	@PostMapping(value = "/save")
 	public String save(@Valid RegistryDTO registry, BindingResult result, Model model) {
