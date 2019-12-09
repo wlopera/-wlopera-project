@@ -9,17 +9,17 @@ Proyecto CRUD Envio Certificado Fitosanitario. Realizado con Java - Maven - Spri
 
 ## Salida del programa
 
-## Ejemplo de consulta H2 - Consola: http://localhost:8096/wlopera/h2-console
-
-![Captura](https://user-images.githubusercontent.com/7141537/70406293-3dfbd500-1a0e-11ea-97fb-f00107296e17.PNG)
-
-##Ejemplo de consulta http://localhost:8096/wlopera/
+## Ejemplo de consulta http://localhost:8096/wlopera/
 
 ![Captura 1](https://user-images.githubusercontent.com/7141537/70406295-3dfbd500-1a0e-11ea-9e5b-4577e5bc34c1.PNG)
 
 ## Respuesta de la consulta: http://localhost:8096/wlopera/save
 
 ![Captura 2](https://user-images.githubusercontent.com/7141537/70406294-3dfbd500-1a0e-11ea-9e4e-1060c345421a.PNG)
+
+## Ejemplo de consulta H2 - Consola: http://localhost:8096/wlopera/h2-console
+
+![Captura](https://user-images.githubusercontent.com/7141537/70406293-3dfbd500-1a0e-11ea-97fb-f00107296e17.PNG)
 
 ## Consulta de todos los resultados de BD: http://localhost:8096/wlopera/acks
 
