@@ -9,6 +9,9 @@ Cliente Servicio Soap - Almacenaje en BD y despliegue en la vista
 
 ![Captura 0](https://user-images.githubusercontent.com/7141537/70406292-3dfbd500-1a0e-11ea-9b3a-e197ba1cfa85.PNG)
 
+![Captura 4](https://user-images.githubusercontent.com/7141537/70416260-abb6f980-1a2c-11ea-91b7-6a9742c1754a.PNG)
+
+
 ## Salida del programa
 
 ## Ejemplo de consulta http://localhost:8096/wlopera/
@@ -18,6 +21,16 @@ Cliente Servicio Soap - Almacenaje en BD y despliegue en la vista
 ## Respuesta de la consulta: http://localhost:8096/wlopera/save
 
 ![Captura 2](https://user-images.githubusercontent.com/7141537/70406294-3dfbd500-1a0e-11ea-9e4e-1060c345421a.PNG)
+
+## Ejemplo de consulta http://localhost:8096/wlopera/
+![Captura 3](https://user-images.githubusercontent.com/7141537/70416259-abb6f980-1a2c-11ea-89e9-e94174c1b9bb.PNG)
+
+## Respuesta de la consulta: http://localhost:8096/wlopera/save
+![Captura 2](https://user-images.githubusercontent.com/7141537/70416258-abb6f980-1a2c-11ea-9497-c90058f3d414.PNG)
+
+## Ejemplo de consulta Base de datos: http://localhost:8096/wlopera/dataBD
+
+![Captura 1](https://user-images.githubusercontent.com/7141537/70416261-abb6f980-1a2c-11ea-9c59-2cd2fd1d2838.PNG)
 
 ## Ejemplo de consulta H2 - Consola: http://localhost:8096/wlopera/h2-console
 
