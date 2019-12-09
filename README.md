@@ -1,9 +1,9 @@
 # Envio certificado Fitosanitario
 Envio Certificado Fitosanitario autor: wlopera      @ DIC 2019
+Cliente Servicio Soap - Almacenaje en BD y despliegue en la vista
 
 Proyecto CRUD Envio Certificado Fitosanitario. Realizado con Java - Maven - Spring - JPA - Hibernate - H2 
-
-Cliente Servicio Soap - Almacenaje en BD y despliegue en la vista
+AngularJS - Consulta de Base de Datos
 
 ## Codigo
 
