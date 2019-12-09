@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "config.wsdl.user",
+    "type": "java.lang.String",
+    "description": "Usuario del servicio"
+  },
+  {
+    "name": "config.wsdl.password",
+    "type": "java.lang.String",
+    "description": "Password del servicio"
+  },
+  {
+    "name": "config.wsdl.endpoint",
+    "type": "java.lang.String",
+    "description": "Endpoint del servicio"
+  },
+  {
+    "name": "config.wsdl.certificate",
+    "type": "java.lang.String",
+    "description": "Certificado base64 del servicio"
+  }
+]}

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp1 (x64) (http://www.altova.com) by (CrimsonLogic) 
+== 4/15/2016:: V0.4 schema release>> se agregó IDdeDocumento 
+-->
+<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:iopC="http://iop.crimsonlogic.com/Cabecera" xmlns:iopt="http://iop.crimsonlogic.com/Tipos" targetNamespace="http://iop.crimsonlogic.com/Cabecera" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="es">
+	<xs:import namespace="http://iop.crimsonlogic.com/Tipos" schemaLocation="TiposIOP_V0_1.xsd"/>
+	<xs:element name="Cabecera" type="iopC:CabeceraType">
+		<xs:annotation>
+			<xs:documentation>
+			Cabecera-Header
+		</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Schema de Cabecera-Schema of Header</dc:title>
+				<dc:subject>Cabecera-Header</dc:subject>
+				<dc:creator>CrimsonLogic</dc:creator>
+				<dc:contributor>CrimsonLogic</dc:contributor>
+				<dc:date>2016-02-11</dc:date>
+				<dc:description>
+				Schemaa of Header
+				Schema de Cabecera 			
+			</dc:description>
+				<dc:identifier>
+				http://iop.crimsonlogic.com/XSDComun/Cabecera_V0_1.xsd
+			</dc:identifier>
+				<dc:format>text/xml</dc:format>
+				<dcterms:created>2016-02-11</dcterms:created>
+				<dc:type>XML Schema</dc:type>
+				<dc:language>es</dc:language>
+			</xs:appinfo>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CabeceraType">
+		<xs:sequence>
+			<xs:element name="CodigoInteraccion" type="iopt:CodigoInteraccion" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: CodigoInteraccion-InteractionCode
+						<!--Nombre codificado del  o los mensajes que utilizan este servicio-->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IDdeServicio" type="iopt:IDdeServicio" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: IDdeServicio-ServiceID
+						<!-- Identificador del servicio web -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IDdeRemitente" type="iopt:IDdeParticipante" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: IDRemitente-SourceID
+						<!-- Indica el ID de Remitente-->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PaisdeRemitente" type="iopt:CodigoPais" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: PaisdeRemitente-CountryofSource
+						<!--Indica el Pais de Remitente-->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IDdeDestinatario" type="iopt:IDdeParticipante" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: IDDestinatario-DestinationID
+						<!--Indica el ID de Destinatario-->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PaisdeDestinatario" type="iopt:CodigoPais" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: PaisDestinatario-CountryofDestination
+						<!--Indica el Pais de Destinatario -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IDdeTransaccion" type="iopt:IDdeReferencia" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: TransaccionID-TransactionID
+						<!-- Identificador del Transaccion -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EstadoTransaccion" type="iopt:CodigoEstado" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: EstadoTransaccion-StatusofTransaction
+						<!--Indica el EstadoTransaccion -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FechaHora" type="iopt:FechaHoraType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: FechaHora-DateTime
+						<!--Fecha y Hora -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TipodeDocumento" type="iopt:CodigoDocumento" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: TipodeDocumento-TypeofDocument
+						<!--Indica el Tipo de Documento -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IDdeDocumento" type="iopt:IOPIDType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: IDdeDocumento-DocumentID
+						<!--Indica el ID de Documento -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IDdeTransaccionOriginal" type="iopt:IDdeReferencia" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descripcion: IDdeTransaccionOriginal-TransactionIDOriginal
+						<!-- Identificador del Transaccion -->
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="VersionEsquema" type="xs:decimal" use="required" fixed="0.2">
+			<xs:annotation>
+				<xs:documentation>Version del esquema.
+					 </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

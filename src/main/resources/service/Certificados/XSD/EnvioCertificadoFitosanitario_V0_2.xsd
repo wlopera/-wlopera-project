@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp1 (x64) (http://www.altova.com)  (CrimsonLogic) 
+== 4/15/2016:: V0.4 schema release>> Incluimos Importación de TiposIOP_V0_1.xsd para resolver problemas de Namespace 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:iopCFS="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitario" xmlns:iopC="http://iop.crimsonlogic.com/Cabecera" xmlns:rsm="urn:un:unece:uncefact:data:standard:SPSCertificate:11" xmlns:iopt="http://iop.crimsonlogic.com/Tipos" targetNamespace="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitario" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://iop.crimsonlogic.com/Cabecera" schemaLocation="../../XSDComun/Cabecera_V0_1.xsd"/>
+	<xs:import namespace="http://iop.crimsonlogic.com/Tipos" schemaLocation="../../XSDComun/TiposIOP_V0_1.xsd"/>
+	<xs:element name="EnvioCertificadoFitosanitario" type="iopCFS:EnvioCertificadoFitosanitarioType">
+		<xs:annotation>
+			<xs:documentation>
+			Schema of Certificate Submission from Origin to Destination country 
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="EnvioCertificadoFitosanitarioType">
+		<xs:sequence>
+			<xs:element ref="iopC:Cabecera"/>
+			<xs:element name="SignedSPSCert" type="xs:string" minOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="VersionEsquema" type="xs:decimal" use="required" fixed="0.4">
+			<xs:annotation>
+				<xs:documentation>Version del esquema. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

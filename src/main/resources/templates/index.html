@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>William Lopera</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<h2>Informaci&oacute;n Importante</h2>
+		<p>Por favor ingrese la informaci&oacute;n necesaria</p>
+		<form action="#" th:action="@{/save}" th:object="${registry}"
+			method="post">
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Pais</span>
+				</div>
+				<input type="text" th:field="*{country}" id="country"
+					class="form-control" placeholder="PE">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Fecha</span>
+				</div>
+				<input type="text" th:field="*{date}" id="date" class="form-control"
+					placeholder="ddMMYY">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Sequencial</span>
+				</div>
+				<input type="text" th:field="*{sequential}" id="sequential"
+					class="form-control" placeholder="000001">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Certificado</span>
+				</div>
+				<textarea class="form-control" rows="10" th:field="*{certificate}"
+					id="certificate"></textarea>
+			</div>
+			<button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>
+		</form>
+	</div>
+</body>
+</html>

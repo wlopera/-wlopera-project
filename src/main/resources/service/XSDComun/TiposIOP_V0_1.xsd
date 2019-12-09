@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:iop="http://iop.crimsonlogic.com" xmlns:iopt="http://iop.crimsonlogic.com/Tipos" targetNamespace="http://iop.crimsonlogic.com/Tipos" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CodigoInteraccion">
+		<xsd:annotation>
+			<xsd:documentation>
+				CodigoInteraccion-InteractionCode
+				Tipo:String
+				Largo:8-16
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="8"/>
+			<xsd:maxLength value="16"/>
+			<xsd:pattern value="[a-zA-Z0-9.]+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IDdeServicio">
+		<xsd:annotation>
+			<xsd:documentation>
+				IDdeServicio-ServiceID
+				Tipo:String
+				Largo:8-16
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="8"/>
+			<xsd:maxLength value="16"/>
+			<xsd:pattern value="[a-zA-Z0-9.]+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IDdeReferencia">
+		<xsd:annotation>
+			<xsd:documentation>
+				IDdeReferencia-ReferenceIdentifier
+				Tipo:String
+				Largo:12-36
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="12"/>
+			<xsd:maxLength value="36"/>
+			<xsd:pattern value="[a-zA-Z0-9-]+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IDdeParticipante">
+		<xsd:annotation>
+			<xsd:documentation>
+				IDdeParticipante-ParticipantID
+				Tipo:String
+				Largo:3-10
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="10"/>
+			<xsd:pattern value="[a-zA-Z0-9]+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodigoDocumento">
+		<xsd:annotation>
+			<xsd:documentation>		
+					Tipo: String			
+			       	Largo Maximo: 5	
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodigoEstado">
+		<xsd:annotation>
+			<xsd:documentation>		
+					Tipo: String			
+			       	Largo Maximo: 5	
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FechaHoraType">
+		<xsd:annotation>
+			<xsd:documentation>
+				FechaHoraType-DateTimeformat
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:dateTime"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodigoPais">
+		<xsd:annotation>
+			<xsd:documentation>
+				CodigoPais-CountryCode
+				Tipo: string
+				Largo Maximo: 2
+	     </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Z][A-Z]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodigoAcuseRecibo">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="RCB"/>
+			<xsd:enumeration value="ERR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodigodeError">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: string
+				Largo Maximo: 5
+	     </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<xsd:simpleType name="IOPTextType1">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: String
+				Largo Maximo: 100
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPTextType2">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: String
+				Largo Maximo: 200
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="200"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPTextType3">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: String
+				Largo Maximo: 300
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPTextType4">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: String
+				Largo Maximo: 400
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="400"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPTextType5">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: String
+				Largo Maximo: 1000
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="1000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPTextType6">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: String
+				Largo Maximo: 3000
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="3000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPIDType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: token
+				Largo Maximo: 100
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPCodeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: token
+				Largo Maximo: 100
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPDateTime">
+		<xsd:annotation>
+			<xsd:documentation>
+				Tipo: DateTime
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:dateTime">
+			<!--<xsd:pattern value="\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+\-]\d\d:\d\d"/> -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPNumerico0">
+		<xsd:annotation>
+			<xsd:documentation>			
+    			Tipo: Decimal			
+    			Largo Maximo: 8		
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPNumerico1">
+		<xsd:annotation>
+			<xsd:documentation>			
+    			Tipo: Decimal			
+    			Largo Maximo: 16		
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPNumerico2">
+		<xsd:annotation>
+			<xsd:documentation>			
+    			Tipo: Decimal			
+    			Largo Maximo: 16,4		
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="16"/>
+			<xsd:fractionDigits value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IOPNumerico3">
+		<xsd:annotation>
+			<xsd:documentation>			
+    			Tipo: Decimal			
+    			Largo Maximo: 16,6	
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="16"/>
+			<xsd:fractionDigits value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

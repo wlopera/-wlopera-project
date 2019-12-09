@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 sp1 (http://www.altova.com) by Chaitanya  (CrimsonLogic) -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitarioWS" xmlns:iopCFS="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitario" xmlns:iopAck="http://iop.crimsonlogic.com/AcuseRecibo" xmlns:iopFalla="http://iop.crimsonlogic.com/Falla" targetNamespace="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitarioWS">
+	<wsdl:import namespace="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitario" location="../XSD/EnvioCertificadoFitosanitario_V0_2.xsd"/>
+	<wsdl:import namespace="http://iop.crimsonlogic.com/AcuseRecibo" location="../../XSDComun/AcuseRecibo_V0_1.xsd"/>
+	<wsdl:import namespace="http://iop.crimsonlogic.com/Falla" location="../../XSDComun/MensajeFalla_V0_1.xsd"/>
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitarioWS" xmlns:iopCFS="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitario" xmlns:iopAck="http://iop.crimsonlogic.com/AcuseRecibo" xmlns:iopFalla="http://iop.crimsonlogic.com/Falla" targetNamespace="http://iop.crimsonlogic.com/EnvioCertificadoFitosanitarioWS" elementFormDefault="qualified"/>
+	</wsdl:types>
+	<wsdl:message name="EnvioCertificadoFitosanitario">
+		<wsdl:part name="EnvioCertificadoFitosanitario" element="iopCFS:EnvioCertificadoFitosanitario"/>
+	</wsdl:message>
+	<wsdl:message name="AcuseRecibo">
+		<wsdl:part name="AcuseRecibo" element="iopAck:AcuseRecibo"/>
+	</wsdl:message>
+	<wsdl:message name="MensajeFalla">
+		<wsdl:part name="MensajeFalla" element="iopFalla:MensajeFalla"/>
+	</wsdl:message>
+	<wsdl:portType name="EnvioCertificadoFitosanitarioEndPoint">
+		<wsdl:operation name="envioCertificadoFitosanitarioOperation">
+			<wsdl:input name="EnvioCertificadoFitosanitario" message="tns:EnvioCertificadoFitosanitario"/>
+			<wsdl:output name="AcuseRecibo" message="tns:AcuseRecibo"/>
+			<wsdl:fault name="MensajeFalla" message="tns:MensajeFalla"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EnvioCertificadoFitosanitarioBinding" type="tns:EnvioCertificadoFitosanitarioEndPoint">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="envioCertificadoFitosanitarioOperation">
+			<soap:operation soapAction="http://localhost:8080/envioCertificadoFitosanitarioOperation" style="document"/>
+			<wsdl:input name="EnvioCertificadoFitosanitario">
+				<soap:body parts="EnvioCertificadoFitosanitario" use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="AcuseRecibo">
+				<soap:body parts="AcuseRecibo" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MensajeFalla">
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EnvioCertificadoFitosanitarioService">
+		<wsdl:port name="EnvioCertificadoFitosanitarioPort" binding="tns:EnvioCertificadoFitosanitarioBinding">
+			<soap:address location="http://localhost:8080/EnvioCertificadoFitosanitario_V0_1?wsdl"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

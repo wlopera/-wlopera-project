@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp1 (x64) (http://www.altova.com) by (CrimsonLogic) -->
+<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:iopErr="http://iop.crimsonlogic.com/Error" xmlns:iopt="http://iop.crimsonlogic.com/Tipos" targetNamespace="http://iop.crimsonlogic.com/Error" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="es">
+	<xs:import namespace="http://iop.crimsonlogic.com/Tipos" schemaLocation="TiposIOP_V0_1.xsd"/>
+	<xs:element name="DetallesError" type="iopErr:DetallesErrorType">
+		<xs:annotation>
+			<xs:documentation>
+			DetallesError-ErrorDetails
+		</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Schema de DetallesError-Schema of ErrorDetails</dc:title>
+				<dc:subject>DetallesError-ErrorDetails</dc:subject>
+				<dc:creator>CrimsonLogic</dc:creator>
+				<dc:contributor>CrimsonLogic</dc:contributor>
+				<dc:date>2015-02-17</dc:date>
+				<dc:description>
+				Schema de DetallesError 							
+			</dc:description>
+				<dc:identifier>
+				http://iop.crimsonlogic.com/XSDComun/DetallesError_V0_1.xsd
+			</dc:identifier>
+				<dc:format>text/xml</dc:format>
+				<dcterms:created>2015-02-17</dcterms:created>
+				<dc:type>XML Schema</dc:type>
+				<dc:language>es</dc:language>
+			</xs:appinfo>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DetallesErrorType">
+		<xs:sequence>
+			<xs:element name="CodigodeError" type="iopt:CodigodeError" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						CodigodeError-ErrorCode
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MensajedeError" type="iopt:IOPTextType3" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						MensajedeError-ErrorMessage
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="VersionEsquema" type="xs:decimal" use="required" fixed="0.1">
+			<xs:annotation>
+				<xs:documentation>
+					Versión del esquema.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

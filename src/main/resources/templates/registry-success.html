@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>William Lopera</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<div class="alert alert-success" role="alert">
+			<h4 class="alert-heading">Ejecuci&oacute;n exitosa!</h4>
+			<p>Para volver a ejecutar un nuevo guardado por favor haga clic
+				aqui.</p>
+			<hr>
+			<p class="mb-0">En caso contrario por favor cierre esta
+				pesta&ntilde;a.</p>
+		</div>
+		<ul class="nav">
+			<li class="nav-item"><a class="nav-link" th:href="@{/}">Volver</a></li>
+		</ul>
+	</div>
+</body>
+</html>
+

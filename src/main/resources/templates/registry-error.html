@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>William Lopera</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<div class="alert alert-warning alert-dismissible fade show"
+			role="alert">
+			<strong>Se ha presentado un error!</strong> Los errores retornados
+			son:
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Mensaje</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="detail : ${details}">
+					<td th:text="${detail.code}"></td>
+					<td th:text="${detail.message}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<ul class="nav">
+			<li class="nav-item"><a class="nav-link" th:href="@{/}">Volver</a></li>
+		</ul>
+	</div>
+</body>
+</html>

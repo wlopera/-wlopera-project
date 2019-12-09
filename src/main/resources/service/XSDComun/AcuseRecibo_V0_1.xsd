@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp1 (x64) (http://www.altova.com) by (CrimsonLogic) -->
+<xs:schema xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:iopAck="http://iop.crimsonlogic.com/AcuseRecibo" xmlns:iopt="http://iop.crimsonlogic.com/Tipos" xmlns:iopC="http://iop.crimsonlogic.com/Cabecera" targetNamespace="http://iop.crimsonlogic.com/AcuseRecibo" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="es">
+	<xs:import namespace="http://iop.crimsonlogic.com/Tipos" schemaLocation="TiposIOP_V0_1.xsd"/>
+	<xs:import namespace="http://iop.crimsonlogic.com/Cabecera" schemaLocation="Cabecera_V0_1.xsd"/>
+	<xs:element name="AcuseRecibo">
+		<xs:annotation>
+			<xs:documentation>
+			AcuseRecibo
+		</xs:documentation>
+			<xs:appinfo>
+				<dc:title>Schema de AcuseRecibo</dc:title>
+				<dc:subject>AcuseRecibo</dc:subject>
+				<dc:creator>CrimsonLogic.</dc:creator>
+				<dc:contributor>CrimsonLogic</dc:contributor>
+				<dc:date>2015-05-11</dc:date>
+				<dc:description>
+				Schema de AcuseRecibo ... 
+				</dc:description>
+				<dc:identifier>
+				http://iop.crimsonlogic.com/XSDComun/AcuseRecibo_V0_1.xsd
+			</dc:identifier>
+				<dc:format>text/xml</dc:format>
+				<dcterms:created>2013-05-11</dcterms:created>
+				<dc:type>XML Schema</dc:type>
+				<dc:language>es</dc:language>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="iopC:Cabecera"/>
+				<xs:element name="CodigoAcuseRecibo" type="iopt:CodigoAcuseRecibo" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+						CodigoAcuseRecibo-CodeOfAckReceived
+					</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="GlosaAcuseRecibo" type="iopt:IOPTextType3">
+					<xs:annotation>
+						<xs:documentation>
+						GlosaAcuseRecibo-ReceivedAckDetail
+					</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="FechaHoraAcuseRecibo" type="iopt:FechaHoraType"/>
+			</xs:sequence>
+			<xs:attribute name="VersionEsquema" type="xs:decimal" use="required" fixed="0.1">
+				<xs:annotation>
+					<xs:documentation>
+					Versión del esquema.
+				</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
