@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.wlopera.project.api.CrimsonLoginDtoApi;
 import org.wlopera.project.command.RegistryCommand;
-import org.wlopera.project.entity.ACKEntity;
-import org.wlopera.project.exception.CrimsonLogicException;
+import org.wlopera.project.dao.api.CrimsonLoginDAO;
+import org.wlopera.project.dao.exception.CrimsonLogicException;
+import org.wlopera.project.web.model.AckDTO;
 import org.wlopera.project.web.model.RegistryDTO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class WebController {
 	private RegistryCommand registryCommand;
 
 	@Autowired
-	CrimsonLoginDtoApi api;
+	CrimsonLoginDAO api;
 
 	@Value("${config.wsdl.certificate}")
 	private String certificate;
@@ -64,9 +64,9 @@ public class WebController {
 	}
 
 	@RequestMapping(value = "/acks", method = RequestMethod.GET)
-	public ResponseEntity<List<ACKEntity>> getAcks() throws CrimsonLogicException {
+	public ResponseEntity<List<AckDTO>> getAcks() throws CrimsonLogicException {
 		log.info("Consulyar todos los registros de base de datos");
-		List<ACKEntity> outputlist = api.getAcks();
+		List<AckDTO> outputlist = api.getAcks();
 		return new ResponseEntity<>(outputlist, new HttpHeaders(), HttpStatus.OK);
 	}
 }

@@ -1,4 +1,4 @@
-package org.wlopera.project.exception;
+package org.wlopera.project.dao.exception;
 
 /**
  * Manejo de execptiones del modulo.

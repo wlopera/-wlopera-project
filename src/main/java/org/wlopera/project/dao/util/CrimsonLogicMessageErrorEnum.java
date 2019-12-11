@@ -1,4 +1,4 @@
-package org.wlopera.project.util;
+package org.wlopera.project.dao.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

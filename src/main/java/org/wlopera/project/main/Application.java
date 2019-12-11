@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @ComponentScan({"org.wlopera.project.*"})
-@EntityScan("org.wlopera.project.entity")
-@EnableJpaRepositories("org.wlopera.project.repository")
+@EntityScan("org.wlopera.project.dao.entity")
+@EnableJpaRepositories("org.wlopera.project.dao.repository")
 public class Application extends SpringBootServletInitializer {
 	
 	public static void main(String[] args) {

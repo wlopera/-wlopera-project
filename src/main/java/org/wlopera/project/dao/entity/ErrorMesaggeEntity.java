@@ -1,4 +1,4 @@
-package org.wlopera.project.entity;
+package org.wlopera.project.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
