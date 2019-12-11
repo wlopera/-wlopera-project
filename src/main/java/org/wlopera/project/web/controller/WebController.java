@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.wlopera.project.api.CrimsonLoginDtoApi;
 import org.wlopera.project.command.RegistryCommand;
+import org.wlopera.project.dao.CrimsonLoginDAO;
 import org.wlopera.project.entity.ACKEntity;
 import org.wlopera.project.exception.CrimsonLogicException;
 import org.wlopera.project.web.model.RegistryDTO;
@@ -32,7 +32,7 @@ public class WebController {
 	private RegistryCommand registryCommand;
 
 	@Autowired
-	CrimsonLoginDtoApi api;
+	CrimsonLoginDAO api;
 
 	@Value("${config.wsdl.certificate}")
 	private String certificate;
@@ -60,7 +60,14 @@ public class WebController {
 	@PostMapping(value = "/save")
 	public String save(@Valid RegistryDTO registry, BindingResult result, Model model) {
 		log.info("Vamos a empezar el proceso de registrar");
-		return registryCommand.execute(registry, model) ? "registry-success" : "registry-error";
+		try {
+			return registryCommand.execute(registry, model) ? "registry-success" : "registry-error";	
+		}catch(CrimsonLogicException e){
+			log.error(e.getMessage());
+			model.addAttribute("error", e.getMessage());
+			return "error";
+		}
+		
 	}
 
 	@RequestMapping(value = "/acks", method = RequestMethod.GET)

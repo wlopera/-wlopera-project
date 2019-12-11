@@ -1,4 +1,4 @@
-package org.wlopera.project.api;
+package org.wlopera.project.dao;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.wlopera.project.exception.CrimsonLogicException;
  * 
  * @author Willian Lopera
  */
-public interface CrimsonLoginDtoApi {
+public interface CrimsonLoginDAO {
 
 	/**
 	 * Permite consultar todos los Envio de Certificado Fitosanitarios.

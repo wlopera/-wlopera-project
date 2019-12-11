@@ -1,4 +1,4 @@
-package org.wlopera.project.api;
+package org.wlopera.project.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.wlopera.project.repository.ErroMesaggeEntityRepository;
 import org.wlopera.project.util.CrimsonLogicMessageErrorEnum;
 
 @Service
-public class CrimsonLoginDtoService implements CrimsonLoginDtoApi {
+public class CrimsonLoginDAOImpl implements CrimsonLoginDAO {
 
 	@Autowired
 	ACKEntityRepository ackRepository;
