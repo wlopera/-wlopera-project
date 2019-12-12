@@ -1,4 +1,4 @@
-package org.wlopera.project.entity;
+package org.wlopera.project.dao.entity;
 
 import java.util.Set;
 
@@ -31,7 +31,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "TBL_ACKNOWLEDGMENT_RECEIPT")
-public class ACKEntity {
+public class AckEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

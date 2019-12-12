@@ -10,6 +10,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/*
+ * Clase de negocio con la cabecera de pa peticion.
+ * 
+ * @author William Lopera
+ */
 @Getter
 @Setter
 @NoArgsConstructor

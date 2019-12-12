@@ -16,14 +16,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.wlopera.project.api.CrimsonLoginDtoApi;
 import org.wlopera.project.command.RegistryCommand;
-import org.wlopera.project.entity.ACKEntity;
+import org.wlopera.project.dao.api.CrimsonLoginDAO;
 import org.wlopera.project.exception.CrimsonLogicException;
+import org.wlopera.project.web.model.AckDTO;
 import org.wlopera.project.web.model.RegistryDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Web Controller ejecuta la lógica de negocio, obtiene los resultados y retorna el resultado.
+ * 
+ * @author William Lopera
+ */
 @Controller
 @Slf4j
 public class WebController {
@@ -32,7 +37,7 @@ public class WebController {
 	private RegistryCommand registryCommand;
 
 	@Autowired
-	CrimsonLoginDtoApi api;
+	CrimsonLoginDAO api;
 
 	@Value("${config.wsdl.certificate}")
 	private String certificate;
@@ -43,21 +48,36 @@ public class WebController {
 
 		final ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
-		modelAndView.addObject("registry", new RegistryDTO(certificate));
+		
+		RegistryDTO registry = new RegistryDTO(certificate);
+		registry.setCountry("PE");
+		
+		modelAndView.addObject("registry", registry);
 
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/dataBD", method = RequestMethod.GET)
+    public String ackPage() {
+        return "ack";
+    }
 
 	@PostMapping(value = "/save")
 	public String save(@Valid RegistryDTO registry, BindingResult result, Model model) {
 		log.info("Vamos a empezar el proceso de registrar");
-		return registryCommand.execute(registry, model) ? "registry-success" : "registry-error";
+		try {
+			return registryCommand.execute(registry, model) ? "registry-success" : "registry-error";	
+		}catch(CrimsonLogicException e){
+			log.error(e.getMessage());
+			model.addAttribute("error", e.getMessage());
+			return "error";
+		}
 	}
 
 	@RequestMapping(value = "/acks", method = RequestMethod.GET)
-	public ResponseEntity<List<ACKEntity>> getAcks() throws CrimsonLogicException {
+	public ResponseEntity<List<AckDTO>> getAcks() throws CrimsonLogicException {
 		log.info("Consulyar todos los registros de base de datos");
-		List<ACKEntity> outputlist = api.getAcks();
+		List<AckDTO> outputlist = api.getAcks();
 		return new ResponseEntity<>(outputlist, new HttpHeaders(), HttpStatus.OK);
 	}
 }

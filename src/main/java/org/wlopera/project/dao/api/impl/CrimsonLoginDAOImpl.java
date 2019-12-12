@@ -1,4 +1,4 @@
-package org.wlopera.project.api;
+package org.wlopera.project.dao.api.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,28 +7,34 @@ import java.util.Optional;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.wlopera.project.entity.ACKEntity;
-import org.wlopera.project.entity.ErrorMesaggeEntity;
+import org.wlopera.project.dao.api.CrimsonLoginDAO;
+import org.wlopera.project.dao.entity.AckEntity;
+import org.wlopera.project.dao.mapper.CrimsonLogicDAOMapper;
+import org.wlopera.project.dao.repository.ACKEntityRepository;
+import org.wlopera.project.dao.repository.ErroMesaggeEntityRepository;
 import org.wlopera.project.exception.CrimsonLogicException;
-import org.wlopera.project.repository.ACKEntityRepository;
-import org.wlopera.project.repository.ErroMesaggeEntityRepository;
 import org.wlopera.project.util.CrimsonLogicMessageErrorEnum;
+import org.wlopera.project.web.model.AckDTO;
+import org.wlopera.project.web.model.ErrorMesaggeDTO;
 
 @Service
-public class CrimsonLoginDtoService implements CrimsonLoginDtoApi {
+public class CrimsonLoginDAOImpl implements CrimsonLoginDAO {
 
 	@Autowired
 	ACKEntityRepository ackRepository;
-	
+
 	@Autowired
 	ErroMesaggeEntityRepository errorRepository;
 
+	@Autowired
+	private CrimsonLogicDAOMapper mapper;
+
 	@Override
-	public List<ACKEntity> getAcks() throws CrimsonLogicException {
+	public List<AckDTO> getAcks() throws CrimsonLogicException {
 
 		try {
 
-			List<ACKEntity> outputList = ackRepository.findAll();
+			List<AckDTO> outputList = mapper.ackDtoToAckEntity(ackRepository.findAll());
 
 			if (CollectionUtils.isNotEmpty(outputList)) {
 				return outputList;
@@ -44,12 +50,12 @@ public class CrimsonLoginDtoService implements CrimsonLoginDtoApi {
 	}
 
 	@Override
-	public ACKEntity getAckById(Long id) throws CrimsonLogicException {
+	public AckDTO getAckById(Long id) throws CrimsonLogicException {
 
-		Optional<ACKEntity> output = ackRepository.findById(id);
+		Optional<AckEntity> output = ackRepository.findById(id);
 
 		if (output.isPresent()) {
-			return output.get();
+			return mapper.ackEntityToAckDto(output.get());
 		}
 
 		throw new CrimsonLogicException(CrimsonLogicMessageErrorEnum.NO_EXIT_REGISTER_BY_ID.getId() + id);
@@ -58,28 +64,26 @@ public class CrimsonLoginDtoService implements CrimsonLoginDtoApi {
 
 	// TODO: Se puede ajustar el codigo para actualizar si el registro ya existe
 	@Override
-	public ACKEntity createAck(ACKEntity entity) throws CrimsonLogicException {
+	public AckDTO createAck(AckDTO ackDto) throws CrimsonLogicException {
 
 		try {
 
-			entity = ackRepository.save(entity);
+			return mapper.ackEntityToAckDto(ackRepository.save(mapper.ackDtoToAckEntity(ackDto)));
 
 		} catch (Exception e) {
 
 			throw new CrimsonLogicException(CrimsonLogicMessageErrorEnum.ERROR_CREATE_REGISTER.getId());
 		}
 
-		return entity;
-
 	}
-	
+
 	// TODO: Se puede ajustar el codigo para actualizar si el registro ya existe
 	@Override
-	public ErrorMesaggeEntity createError(ErrorMesaggeEntity error) throws CrimsonLogicException{
+	public ErrorMesaggeDTO createError(ErrorMesaggeDTO error, Long ackId) throws CrimsonLogicException {
 
 		try {
 
-			error = errorRepository.save(error);
+			error = mapper.errorEntityToErrorDTO(errorRepository.save(mapper.errorDtoToErrorEntity(error, ackId)));
 
 		} catch (Exception e) {
 
@@ -93,7 +97,7 @@ public class CrimsonLoginDtoService implements CrimsonLoginDtoApi {
 	@Override
 	public void deleteAck(Long id) throws CrimsonLogicException {
 
-		Optional<ACKEntity> output = ackRepository.findById(id);
+		Optional<AckEntity> output = ackRepository.findById(id);
 
 		if (output.isPresent()) {
 			ackRepository.deleteById(id);

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Libreria CCS bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
+
+<!-- Libreria Jquery - requerida por boopstrap -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Libreria bootstrap -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- Libreria angularJS -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+<!-- Libreria propia del aplicativo -->
+<script src="../../wlopera/js/app.js"></script>
+
+<title>AcuseRecibo</title>
+</head>
+<body ng-controller="MyController">
+	<h1>Envio Certificado Fitosanitario</h1>
+	<hr></hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<br></br> <br></br>
+				<div class="row" ng-show="showData">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>ID TRANSACCION</th>
+								<th>CODIGO</th>
+								<th>MENSAGE</th>
+								<th>FECHA</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="value in data">
+								<td>{{value.id}}</td>
+								<td>{{value.transaccionId}}</td>
+								<td>{{value.code}}</td>
+								<td>{{value.message}}</td>
+								<td>{{value.date}}</td>
+								<td>
+									<div ng-if="value.code == 'ERR'">
+										<button ng-click="mostrar(value.mensajesError)"
+											class="btn btn-link">
+											<i class="glyphicon glyphicon-remove"></i> Errores
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a th:href="@{/}">Volver</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="recordModal" tabindex="1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<h4 class="modal-title" id="myModalLabel">Mensajes de error</h4>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>CODIGO</th>
+								<th>MENSAGE</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="error in errors | orderBy:id ">
+								<td>{{error.id}}</td>
+								<td>{{error.code}}</td>
+								<td>{{error.message}}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">Salir</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

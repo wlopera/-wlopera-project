@@ -10,6 +10,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Clase negocio de datos con lista de errores retornados por la peticion.
+ * 
+ * @author William Lopera
+ */
 @Getter
 @Setter
 @NoArgsConstructor

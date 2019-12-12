@@ -11,6 +11,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Modelo de datos requeridos para realizar la peticion.
+ * 
+ * @author William Lopera
+ */
 @Getter
 @Setter
 @NoArgsConstructor
