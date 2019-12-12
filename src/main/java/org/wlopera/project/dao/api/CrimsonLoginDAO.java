@@ -2,7 +2,7 @@ package org.wlopera.project.dao.api;
 
 import java.util.List;
 
-import org.wlopera.project.dao.exception.CrimsonLogicException;
+import org.wlopera.project.exception.CrimsonLogicException;
 import org.wlopera.project.web.model.AckDTO;
 import org.wlopera.project.web.model.ErrorMesaggeDTO;
 

@@ -10,6 +10,12 @@ import org.apache.wss4j.common.ext.WSPasswordCallback;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * Clase 'CallBackHandler' de seguridad que permite autenticar el usuario que realiza la peticion. 
+ * @author Willian Lopera
+ *
+ */
+
 @AllArgsConstructor
 public class CrimsonLogicPasswordCallBack implements CallbackHandler {
 	private String user;

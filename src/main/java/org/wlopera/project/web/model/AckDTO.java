@@ -8,7 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Modelo de base de datos.
+ * Objeto 'ACK' del modelo de negocio.
  * 
  * @author William Lopera
  */

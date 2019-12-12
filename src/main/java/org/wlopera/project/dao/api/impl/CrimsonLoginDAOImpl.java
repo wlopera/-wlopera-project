@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wlopera.project.dao.api.CrimsonLoginDAO;
 import org.wlopera.project.dao.entity.AckEntity;
-import org.wlopera.project.dao.exception.CrimsonLogicException;
 import org.wlopera.project.dao.mapper.CrimsonLogicDAOMapper;
 import org.wlopera.project.dao.repository.ACKEntityRepository;
 import org.wlopera.project.dao.repository.ErroMesaggeEntityRepository;
-import org.wlopera.project.dao.util.CrimsonLogicMessageErrorEnum;
+import org.wlopera.project.exception.CrimsonLogicException;
+import org.wlopera.project.util.CrimsonLogicMessageErrorEnum;
 import org.wlopera.project.web.model.AckDTO;
 import org.wlopera.project.web.model.ErrorMesaggeDTO;
 

@@ -9,6 +9,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Clase negocio de datos con el acuse de recibo consultado.
+ * 
+ * @author William Lopera
+ */
 @Getter
 @Setter
 @NoArgsConstructor

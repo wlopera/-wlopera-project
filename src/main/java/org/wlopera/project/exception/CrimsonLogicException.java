@@ -1,7 +1,7 @@
-package org.wlopera.project.dao.exception;
+package org.wlopera.project.exception;
 
 /**
- * Manejo de execptiones del modulo.
+ * Manejo de execepciones del modulo.
  * 
  * @author William Lopera
  */

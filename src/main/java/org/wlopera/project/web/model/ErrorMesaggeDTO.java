@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Modelo de base de datos.
+ * Objeto 'Mensaje de error' del modelo de negocio.
  * 
  * @author William Lopera
  */

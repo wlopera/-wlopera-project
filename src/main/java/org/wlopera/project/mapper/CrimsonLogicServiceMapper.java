@@ -15,6 +15,11 @@ import org.wlopera.project.service.generated.crimsonlogic.model.DetallesErrorTyp
 import org.wlopera.project.service.generated.crimsonlogic.model.EnvioCertificadoFitosanitarioType;
 import org.wlopera.project.service.generated.crimsonlogic.model.MensajeFallaType;
 
+/**
+ * Mapeo de datos entre el servicio-SOAP y el negocio (y viceversa)
+ * 
+ * @author William Lopera
+ */
 @Mapper()
 public interface CrimsonLogicServiceMapper {
 
