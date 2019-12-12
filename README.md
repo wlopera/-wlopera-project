@@ -27,6 +27,15 @@ Cliente Servicio Soap - Almacenaje en BD y despliegue en la vista
 
 ![Captura 3](https://user-images.githubusercontent.com/7141537/70406291-3dfbd500-1a0e-11ea-9ef6-704712e1f739.PNG)
 
+## Manejo de errores: Error de fecha de entrada
+
+![Captura 1](https://user-images.githubusercontent.com/7141537/70687173-583aea80-1c7c-11ea-933d-0498f9a1996d.PNG)
+
+## Manejo de errores: No se envia datos de certificado
+
+![Captura 2](https://user-images.githubusercontent.com/7141537/70687172-583aea80-1c7c-11ea-9798-a5d678eb2add.PNG)
+
+
 ### En construcción 
 
 ![data](https://user-images.githubusercontent.com/7141537/48297627-294fb500-e47b-11e8-9d9c-4b184aefd012.png)
