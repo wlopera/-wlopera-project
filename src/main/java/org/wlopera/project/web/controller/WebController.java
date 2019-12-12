@@ -50,7 +50,7 @@ public class WebController {
 		modelAndView.setViewName("index");
 		
 		RegistryDTO registry = new RegistryDTO(certificate);
-		registry.setCountry("PS");
+		registry.setCountry("PE");
 		
 		modelAndView.addObject("registry", registry);
 

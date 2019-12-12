@@ -40,7 +40,7 @@ public class RegistryCommandImpl implements RegistryCommand {
 
 		if (null != registry) {
 
-			//validateRegistry(registry);
+			validateRegistry(registry);
 			
 			try {
 
