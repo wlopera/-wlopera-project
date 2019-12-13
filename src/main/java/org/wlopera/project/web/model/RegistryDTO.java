@@ -29,6 +29,7 @@ public class RegistryDTO implements Serializable {
 	private String country;
 	private String date;
 	private String sequential;
+	private Boolean validate;
 	
 	@NonNull
 	private String certificate;

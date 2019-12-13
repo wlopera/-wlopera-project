@@ -51,9 +51,10 @@ public class WebController {
 		
 		RegistryDTO registry = new RegistryDTO(certificate);
 		registry.setCountry("PE");
+		registry.setValidate(Boolean.TRUE);
 		
 		modelAndView.addObject("registry", registry);
-
+		
 		return modelAndView;
 	}
 	
@@ -64,7 +65,8 @@ public class WebController {
 
 	@PostMapping(value = "/save")
 	public String save(@Valid RegistryDTO registry, BindingResult result, Model model) {
-		log.info("Vamos a empezar el proceso de registrar");
+		log.info("Vamos a empezar el proceso de registrar: " + registry.getValidate());
+		log.info("##=> model: " + model.toString());
 		try {
 			return registryCommand.execute(registry, model) ? "registry-success" : "registry-error";	
 		}catch(CrimsonLogicException e){

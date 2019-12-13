@@ -41,7 +41,7 @@ public class RegistryCommandImpl implements RegistryCommand {
 		if (null != registry) {
 
 			validateRegistry(registry);
-			
+
 			try {
 
 				final HeadDTO head = getHead(registry);
@@ -180,18 +180,20 @@ public class RegistryCommandImpl implements RegistryCommand {
 	 */
 	private void validateRegistry(RegistryDTO registry) throws CrimsonLogicException {
 
-		DateFormat sdf = new SimpleDateFormat("ddMMyy");
-		sdf.setLenient(false);
-		try {
-			sdf.parse(registry.getDate());
-		} catch (ParseException e) {
-			throw new CrimsonLogicException(
-					"[" + registry.getDate() + "]: " + CrimsonLogicMessageErrorEnum.ERROR_DATE_FORMAT.getId());
-		}
+		if (registry.getValidate()) {
+			DateFormat sdf = new SimpleDateFormat("ddMMyy");
+			sdf.setLenient(false);
+			try {
+				sdf.parse(registry.getDate());
+			} catch (ParseException e) {
+				throw new CrimsonLogicException(
+						"[" + registry.getDate() + "]: " + CrimsonLogicMessageErrorEnum.ERROR_DATE_FORMAT.getId());
+			}
 
-		if (registry.getSequential().length() != 6) {
-			throw new CrimsonLogicException("[" + registry.getSequential() + "]: "
-					+ CrimsonLogicMessageErrorEnum.ERROR_SEQUENTIAL_SIZE.getId());
+			if (registry.getSequential().length() != 6) {
+				throw new CrimsonLogicException("[" + registry.getSequential() + "]: "
+						+ CrimsonLogicMessageErrorEnum.ERROR_SEQUENTIAL_SIZE.getId());
+			}
 		}
 
 	}

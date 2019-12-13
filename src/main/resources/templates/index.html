@@ -11,6 +11,24 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script>
+	/**
+	 * Funcion que permite validaciones 
+	 */
+	function validateChecked() {
+		if (document.getElementById("validate").checked) {
+			document.getElementById("country").readOnly = true;
+			return;
+		}
+		document.getElementById("country").readOnly = false;
+	}
+
+	//Actualiza el valor luego de cargar el DOM
+	$(document).ready(function() {
+		document.getElementById("country").readOnly = true;
+	});
+</script>
 </head>
 <body>
 	<div class="container mt-3">
@@ -19,12 +37,15 @@
 		<p>Por favor ingrese la informaci&oacute;n necesaria</p>
 		<form action="#" th:action="@{/save}" th:object="${registry}"
 			method="post">
+			<div style="text-align: right;">Validaciones: <input
+				type="checkbox" th:field="*{validate}" name="validate" id="validate"
+				onchange="validateChecked()" /></div>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Pais</span>
 				</div>
 				<input type="text" th:field="*{country}" id="country"
-					class="form-control" value="PE" readonly>
+					class="form-control" value="PE">
 			</div>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
@@ -50,8 +71,10 @@
 			<button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>
 		</form>
 		<ul class="nav">
-			<li class="nav-item"><a class="nav-link" th:href="@{/dataBD}">Base de datos</a></li>
-			<li class="nav-item"><a class="nav-link" th:href="@{/h2-console}">Consola H2</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/dataBD}">Base
+					de datos</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/h2-console}">Consola H2</a></li>
 		</ul>
 	</div>
 </body>
