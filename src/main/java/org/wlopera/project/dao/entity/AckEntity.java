@@ -12,9 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -51,7 +48,7 @@ public class AckEntity {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ack_id")
-	@Fetch(value = FetchMode.SUBSELECT)
+	//@Fetch(value = FetchMode.SUBSELECT)
 	private Set<ErrorMesaggeEntity> mensajesError;
 
 }

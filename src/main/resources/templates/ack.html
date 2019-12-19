@@ -89,7 +89,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="error in errors | orderBy:id ">
+							<tr ng-repeat="error in errors | orderBy:'id' ">
 								<td>{{error.id}}</td>
 								<td>{{error.code}}</td>
 								<td>{{error.message}}</td>

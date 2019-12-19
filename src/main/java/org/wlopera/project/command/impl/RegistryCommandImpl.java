@@ -157,7 +157,7 @@ public class RegistryCommandImpl implements RegistryCommand {
 				for (DetailErrorDTO detail : acknowledgment.getErrorInfo().getDetails()) {
 
 					error = new ErrorMesaggeDTO();
-					error.setCode("ERR");
+					error.setCode(detail.getCode());
 					error.setId(ack.getId());
 					error.setMessage(detail.getMessage());
 
